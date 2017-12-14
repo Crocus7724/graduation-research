@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package simulator;
+
+service Simulator {
+    rpc Start(VoidValue) returns (VoidValue);
+    rpc Send(Angle) returns (Position);
+    rpc End(VoidValue) returns (VoidValue);
+}
+
+message VoidValue {
+}
+
+message Angle {
+    JointKind kind = 1;
+    float roll = 2;
+    float pitch = 3;
+    float yaw = 4;
+}
+
+message Position {
+    PartsKind kind = 1;
+    float x = 2;
+    float y = 3;
+    float z = 4;
+}
+
+enum JointKind {
+    RIGHT_SHOULDER = 0;
+    RIGHT_ELBOW = 1;
+    RIGHT_HIP = 3;
+    RIGHT_KNEE = 4;
+    RIGHT_FOOT = 5;
+    LEFT_SHOULDER = 6;
+    LEFT_ELBOW = 7;
+    LEFT_HIP = 9;
+    LEFT_KNEE = 10;
+    LEFT_FOOT = 11;
+}
+
+enum PartsKind {
+    HEAD = 0;
+}
