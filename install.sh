@@ -64,10 +64,10 @@ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bashrc
 
 exec "$SHELL"
-pyenv install anaconda3-5.0.1
+pyenv install "anaconda$ANACONDA_VERSION"
 cd $BASE_DIR/learning
 
-pyenv local anaconda3-5.0.1
+pyenv local "anaconda$ANACONDA_VERSION"
 
 # install machine learning tools
 pip install tensorflow gym keras-rl h5py
